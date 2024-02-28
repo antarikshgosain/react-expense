@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import RecentExpenses from './screens/RecentExpenses';
-import ManageExpense from './screens/manageExpense';
+import ManageExpense from './screens/ManageExpense';
 import AllExpenses from './screens/AllExpenses';
 import { GlobalStyles } from './constants/styles';
 import { Ionicons } from '@expo/vector-icons'; 
