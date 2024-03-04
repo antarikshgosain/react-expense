@@ -1,12 +1,15 @@
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { GlobalStyles } from '../../constants/styles';
 import { getFormattedDate } from '../../util/Date';
-
+import { useNavigation }  from '@react-navigation/native'
+import { GlobalScreens } from '../../constants/screens';
 
 function ExpensesItem({description, amount, date}) {
 
-    function expensePressHandler(){
+    const navigation = useNavigation();
 
+    function expensePressHandler(){
+        navigation.navigate(GlobalScreens.screens.manageExpenseScreen);
     }
 
     return (
