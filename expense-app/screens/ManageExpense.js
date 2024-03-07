@@ -1,10 +1,49 @@
-import { Text } from "react-native";
+import { useLayoutEffect } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import IconButton from '../components/ui/IconButton.js';
+import { GlobalStyles } from "../constants/styles";
+function ManageExpense({route, navigation}) {
 
-function ManageExpense() {
+    const editedExpenseId = route.params?.expenseId;
+    const isEditing = !!editedExpenseId; //falsy value = FALSE , truthy value to TRUE
 
-    return <Text>This is Manage Expense Screen</Text>
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title: isEditing ? 'Edit Expense' : 'Add Expense'
+        });
+    }, [navigation, isEditing]);
+
+    function deleteExpenseHandler() {
+
+    }
+
+
+    return (
+        <View style={styles.container}>
+            {isEditing && 
+                <View style={styles.deleteContainer}>
+                    <IconButton icon='trash' color={GlobalStyles.colors.error500} size={36} onPress={deleteExpenseHandler}/>
+                </View>
+            }
+        </View>
+    );
+    
 
 }
 
-
 export default ManageExpense;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        padding: 24,
+        backgroundColor: GlobalStyles.colors.primary800,
+    },
+    deleteContainer: {
+        marginTop: 16,
+        paddingTop: 8,
+        borderTopWidth: 2,
+        borderTopColor: GlobalStyles.colors.primary200,
+        alignItems: 'center',
+    },
+});

@@ -4,12 +4,14 @@ import { getFormattedDate } from '../../util/Date';
 import { useNavigation }  from '@react-navigation/native'
 import { GlobalScreens } from '../../constants/screens';
 
-function ExpensesItem({description, amount, date}) {
+function ExpensesItem({id, description, amount, date}) {
 
     const navigation = useNavigation();
 
     function expensePressHandler(){
-        navigation.navigate(GlobalScreens.screens.manageExpenseScreen);
+        navigation.navigate(GlobalScreens.screens.manageExpenseScreen , {
+            expenseId: id
+        });
     }
 
     return (
