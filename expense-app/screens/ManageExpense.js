@@ -29,9 +29,9 @@ function ManageExpense({route, navigation}) {
 
     return (
         <View style={styles.container}>
-            <View>
-                <Button mode="flat" onPress={cancelHandler}>Cancel</Button>
-                <Button onPress={confirmHandler}>{isEditing ? 'Update':'Add'}</Button>
+            <View style={styles.buttonsContainer}>
+                <Button style={styles.button} mode="flat" onPress={cancelHandler}>Cancel</Button>
+                <Button style={styles.button} onPress={confirmHandler}>{isEditing ? 'Update':'Add'}</Button>
             </View>
             {isEditing && 
                 <View style={styles.deleteContainer}>
@@ -58,5 +58,14 @@ const styles = StyleSheet.create({
         borderTopWidth: 2,
         borderTopColor: GlobalStyles.colors.primary200,
         alignItems: 'center',
+    },
+    buttonsContainer:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    button:{
+        minWidth: 120,
+        marginHorizontal: 8,
     },
 });
